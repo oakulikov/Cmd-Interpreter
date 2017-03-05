@@ -5,7 +5,7 @@ use warnings;
 
 use Term::ReadLine;
 
-our $VERSION = "0.01";
+our $VERSION = "0.02";
 
 use constant IDENT_CHARS => join '', 'a'..'z', 'A'..'Z', '0' .. '9', '_';
 use constant PROG_NAME => 'Simple command interpreter';
@@ -194,9 +194,16 @@ __END__
 
 =head1 NAME
 
-Cmd::Interpreter - a simple framework for writing line-oriented command interpreters.
+Cmd::Interpreter - Support for line-oriented command interpreters
 
 =head1 SYNOPSIS
+
+    use Cmd::Interpreter;
+    our @ISA = qw(Cmd::Interpreter);
+
+=head1 USAGE
+
+=item Write your class
 
     package Example::Hello;
 
@@ -236,6 +243,8 @@ Cmd::Interpreter - a simple framework for writing line-oriented command interpre
 
     1;
 
+=item Use your class
+
     use strict;
     use warnings;
 
@@ -246,7 +255,10 @@ Cmd::Interpreter - a simple framework for writing line-oriented command interpre
 
 =head1 DESCRIPTION
 
-Cmd::Interpreter is ...
+Cmd::Interpreter provides a simple framework for writing line-oriented
+command interpreters. These are often useful for test harnesses,
+administrative tools, and prototypes that will later be wrapped in a
+more sophisticated interface.
 
 =head1 AUTHOR
 
