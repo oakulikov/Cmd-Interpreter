@@ -5,7 +5,7 @@ use warnings;
 
 use Term::ReadLine;
 
-our $VERSION = "0.03.1";
+our $VERSION = "0.3.2";
 
 use constant IDENT_CHARS => join '', 'a'..'z', 'A'..'Z', '0' .. '9', '_';
 use constant PROG_NAME => 'Simple command interpreter';

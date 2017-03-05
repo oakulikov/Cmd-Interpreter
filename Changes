@@ -2,6 +2,10 @@ Revision history for Perl extension Cmd-Interpreter
 
 {{$NEXT}}
 
+0.3.2 2017-03-05T16:59:04Z
+
+    - upload to cpan
+
 0.03.1 2017-03-05T16:53:21Z
 
     - some clean-up
