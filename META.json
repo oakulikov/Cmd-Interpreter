@@ -52,5 +52,16 @@
       }
    },
    "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/oakulikov/Cmd-Interpreter/issues"
+      },
+      "homepage" : "https://github.com/oakulikov/Cmd-Interpreter",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/oakulikov/Cmd-Interpreter.git",
+         "web" : "https://github.com/oakulikov/Cmd-Interpreter"
+      }
+   },
    "version" : "0.01"
 }
