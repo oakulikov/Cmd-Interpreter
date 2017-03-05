@@ -201,6 +201,11 @@ Cmd::Interpreter - Support for line-oriented command interpreters
     use Cmd::Interpreter;
     our @ISA = qw(Cmd::Interpreter);
 
+=head1 DESCRIPTION
+
+Cmd::Interpreter provides a simple framework for writing line-oriented
+command interpreters.
+
 =head1 USAGE
 
 =over 4
@@ -247,6 +252,7 @@ Cmd::Interpreter - Support for line-oriented command interpreters
 
 =item Use your class
 
+    #!/usr/bin/env perl
     use strict;
     use warnings;
 
@@ -257,12 +263,70 @@ Cmd::Interpreter - Support for line-oriented command interpreters
 
 =back
 
-=head1 DESCRIPTION
+=head1 API - may be useful for introduce or overriding
 
-Cmd::Interpreter provides a simple framework for writing line-oriented
-command interpreters. These are often useful for test harnesses,
-administrative tools, and prototypes that will later be wrapped in a
-more sophisticated interface.
+=head2 Class constructor
+
+You can pass programm name as prog_name, prompt as prompt.
+
+=head2 Your functions
+
+Loop stoping if function returns true value.
+
+=over 4
+
+=do_foo
+
+    Will execute on command 'foo'.
+
+=help_foo
+
+    Will execute on command '?foo' or 'help foo'.
+
+=help
+
+    Will execute when input is '?' or 'help'.
+
+=back
+
+=head2 Framework functions
+
+=over 4
+
+=item pre_loop
+
+    Will execute before loop.
+
+=item post_loop
+
+    Will execute after loop.
+
+=item pre_cmd
+
+    Receive input line, return one (can be changed).
+
+=item post_cmd
+
+    Receive stop flag, line (from pre_cmd). Return stop flag.
+
+=item default_action
+
+    Will execute when input command not exists.
+
+=item empty_line
+
+    Will execute when input defined but empty. By default execute
+    last command if one exists.
+
+=item no_input
+
+    Will execute when input undefined.
+
+=item do_shell
+
+    Will execute when input is '!cmd [args]' or 'shell cmd [args]'.
+
+=back
 
 =head1 AUTHOR
 
