@@ -75,15 +75,17 @@ You can pass programm name as prog\_name, prompt as prompt.
 
 Loop stoping if function returns true value.
 
-> &#x3d;do\_foo
->
->     Will execute on command 'foo'.
->
-> &#x3d;help\_foo
->
->     Will execute on command '?foo' or 'help foo'.
->
->     Will execute when input is '?' or 'help'.
+- do\_foo
+
+        Will execute on command 'foo'.
+
+- help\_foo
+
+        Will execute on command '?foo' or 'help foo'.
+
+- help
+
+        Will execute when input is '?' or 'help'.
 
 ## Framework functions
 
@@ -134,11 +136,3 @@ Copyright (C) Oleg Kulikov.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
-
-# POD ERRORS
-
-Hey! **The above document had some coding errors, which are explained below:**
-
-- Around line 286:
-
-    Unknown directive: =help
