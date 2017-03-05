@@ -45,7 +45,8 @@ sub loop {
     my $term = Term::ReadLine->new($self->{prog_name});
     my $stop = '';
 
-    while (defined(my $line = $term->readline($self->{prompt}))) {
+    while (1) {
+        my $line = $term->readline($self->{prompt});
 
         $line = $self->pre_cmd($line);
         $stop = $self->do_cmd($line);
@@ -95,7 +96,7 @@ sub no_input {
 
     print "\n";
 
-    return "exit";
+    return "no_input";
 }
 
 
@@ -142,7 +143,7 @@ sub do_shell {
 sub do_cmd {
     my $self = shift;
 
-    return $self->no_input() unless $_[0];
+    return $self->no_input() unless defined $_[0];
 
     my ($cmd, $args, $line) = $self->parse_line(shift);
 
@@ -193,15 +194,67 @@ __END__
 
 =head1 NAME
 
-Cmd::Interpreter - It's new $module
+Cmd::Interpreter - a simple framework for writing line-oriented command interpreters.
 
 =head1 SYNOPSIS
 
+    package Example::Hello;
+
+    use strict;
+    use warnings;
+
     use Cmd::Interpreter;
+
+    our @ISA = qw(Cmd::Interpreter);
+
+    sub help {
+        my $self = shift;
+        print "common help\n";
+        return '';
+    }
+
+    sub do_hello {
+        my $self = shift;
+        print "Hello " . (shift || "World") . "!\n";
+        return '';
+    }
+
+    sub help_hello {
+        my $self = shift;
+        print "help for hello\n";
+        return '';
+    }
+
+    sub do_quit {
+        my $self = shift;
+        print "By\n";
+        return "quit";
+    }
+
+    sub empty_line {
+    }
+
+    1;
+
+    use strict;
+    use warnings;
+
+    use Example::Hello;
+
+    my $ex = Example::Hello->new(prompt => 'example> ');
+    $ex->run("Welcome to hello world app.");
 
 =head1 DESCRIPTION
 
 Cmd::Interpreter is ...
+
+=head1 AUTHOR
+
+Oleg Kulikov E<lt>oakulikov@yandex.ruE<gt>
+
+=head1 THANKS TO
+
+Authors of Python Lib/cmd.py
 
 =head1 LICENSE
 
@@ -209,10 +262,6 @@ Copyright (C) Oleg Kulikov.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
-
-=head1 AUTHOR
-
-Oleg Kulikov E<lt>oakulikov@yandex.ruE<gt>
 
 =cut
 
