@@ -7,6 +7,11 @@ Cmd::Interpreter - Support for line-oriented command interpreters
     use Cmd::Interpreter;
     our @ISA = qw(Cmd::Interpreter);
 
+# DESCRIPTION
+
+Cmd::Interpreter provides a simple framework for writing line-oriented
+command interpreters.
+
 # USAGE
 
 - Write your class
@@ -51,6 +56,7 @@ Cmd::Interpreter - Support for line-oriented command interpreters
 
 - Use your class
 
+        #!/usr/bin/env perl
         use strict;
         use warnings;
 
@@ -59,12 +65,60 @@ Cmd::Interpreter - Support for line-oriented command interpreters
         my $ex = Example::Hello->new(prompt => 'example> ');
         $ex->run("Welcome to hello world app.");
 
-# DESCRIPTION
+# API - may be useful for introduce or overriding
 
-Cmd::Interpreter provides a simple framework for writing line-oriented
-command interpreters. These are often useful for test harnesses,
-administrative tools, and prototypes that will later be wrapped in a
-more sophisticated interface.
+## Class constructor
+
+You can pass programm name as prog\_name, prompt as prompt.
+
+## Your functions
+
+Loop stoping if function returns true value.
+
+> &#x3d;do\_foo
+>
+>     Will execute on command 'foo'.
+>
+> &#x3d;help\_foo
+>
+>     Will execute on command '?foo' or 'help foo'.
+>
+>     Will execute when input is '?' or 'help'.
+
+## Framework functions
+
+- pre\_loop
+
+        Will execute before loop.
+
+- post\_loop
+
+        Will execute after loop.
+
+- pre\_cmd
+
+        Receive input line, return one (can be changed).
+
+- post\_cmd
+
+        Receive stop flag, line (from pre_cmd). Return stop flag.
+
+- default\_action
+
+        Will execute when input command not exists.
+
+- empty\_line
+
+        Will execute when input defined but empty. By default execute
+        last command if one exists.
+
+- no\_input
+
+        Will execute when input undefined.
+
+- do\_shell
+
+        Will execute when input is '!cmd [args]' or 'shell cmd [args]'.
 
 # AUTHOR
 
@@ -80,3 +134,11 @@ Copyright (C) Oleg Kulikov.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
+
+# POD ERRORS
+
+Hey! **The above document had some coding errors, which are explained below:**
+
+- Around line 286:
+
+    Unknown directive: =help

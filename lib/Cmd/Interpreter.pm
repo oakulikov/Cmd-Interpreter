@@ -5,7 +5,7 @@ use warnings;
 
 use Term::ReadLine;
 
-our $VERSION = "0.02";
+our $VERSION = "0.03";
 
 use constant IDENT_CHARS => join '', 'a'..'z', 'A'..'Z', '0' .. '9', '_';
 use constant PROG_NAME => 'Simple command interpreter';
@@ -275,15 +275,15 @@ Loop stoping if function returns true value.
 
 =over 4
 
-=do_foo
+=item do_foo
 
     Will execute on command 'foo'.
 
-=help_foo
+=item help_foo
 
     Will execute on command '?foo' or 'help foo'.
 
-=help
+=item help
 
     Will execute when input is '?' or 'help'.
 
