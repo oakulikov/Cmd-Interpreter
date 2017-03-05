@@ -1,5 +1,5 @@
 {
-   "abstract" : "It's new $module",
+   "abstract" : "Support for line-oriented command interpreters",
    "author" : [
       "Oleg Kulikov <oakulikov@yandex.ru>"
    ],
@@ -63,5 +63,5 @@
          "web" : "https://github.com/oakulikov/Cmd-Interpreter"
       }
    },
-   "version" : "0.01"
+   "version" : "0.02"
 }

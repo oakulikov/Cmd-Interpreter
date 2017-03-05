@@ -203,6 +203,8 @@ Cmd::Interpreter - Support for line-oriented command interpreters
 
 =head1 USAGE
 
+=over 4
+
 =item Write your class
 
     package Example::Hello;
@@ -252,6 +254,8 @@ Cmd::Interpreter - Support for line-oriented command interpreters
 
     my $ex = Example::Hello->new(prompt => 'example> ');
     $ex->run("Welcome to hello world app.");
+
+=back
 
 =head1 DESCRIPTION
 
