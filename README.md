@@ -69,11 +69,11 @@ command interpreters.
 
 ## Class constructor
 
-You can pass programm name as prog\_name, prompt as prompt.
+You can pass program name as `prog_name`, prompt as `prompt`.
 
 ## Your functions
 
-Loop stoping if function returns true value.
+Loop stoping if function returns true value aka `stop flag`.
 
 - do\_foo
 
@@ -121,6 +121,16 @@ Loop stoping if function returns true value.
 - do\_shell
 
         Will execute when input is '!cmd [args]' or 'shell cmd [args]'.
+
+# FAQ
+
+## Command history
+
+Command history works fine with such module like Term::ReadLine::Perl.
+
+## git ready
+
+You can install Cmd::Interpreter from `cpanm git@github.com:oakulikov/Cmd-Interpreter.git`.
 
 # AUTHOR
 
