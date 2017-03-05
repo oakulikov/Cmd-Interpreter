@@ -1,0 +1,4 @@
+name = "Cmd-Interpreter"
+# badges = ["travis"]
+module_maker="ModuleBuildTiny"
+
