@@ -2,6 +2,8 @@ Revision history for Perl extension Cmd-Interpreter
 
 {{$NEXT}}
 
+    - some clean-up
+
 0.03 2017-03-05T15:42:40Z
 
     - done with docs

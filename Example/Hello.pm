@@ -1,5 +1,5 @@
 package Example::Hello;
-
+use 5.008001;
 use strict;
 use warnings;
 
@@ -33,5 +33,6 @@ sub do_quit {
 
 sub empty_line {
 }
+
 
 1;

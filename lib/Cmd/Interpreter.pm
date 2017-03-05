@@ -5,7 +5,7 @@ use warnings;
 
 use Term::ReadLine;
 
-our $VERSION = "0.03";
+our $VERSION = "0.03.1";
 
 use constant IDENT_CHARS => join '', 'a'..'z', 'A'..'Z', '0' .. '9', '_';
 use constant PROG_NAME => 'Simple command interpreter';
@@ -152,7 +152,7 @@ sub do_cmd {
 
     my $sub = $self->check_sub("do_$cmd");
 
-    return $self->default_action() unless $sub;
+    return $self->default_action($cmd, $args) unless $sub;
 
     $self->{last_cmd} = $line;
 
@@ -267,11 +267,11 @@ command interpreters.
 
 =head2 Class constructor
 
-You can pass programm name as prog_name, prompt as prompt.
+You can pass program name as C<prog_name>, prompt as C<prompt>.
 
 =head2 Your functions
 
-Loop stoping if function returns true value.
+Loop stoping if function returns true value aka C<stop flag>.
 
 =over 4
 
@@ -327,6 +327,16 @@ Loop stoping if function returns true value.
     Will execute when input is '!cmd [args]' or 'shell cmd [args]'.
 
 =back
+
+=head1 FAQ
+
+=head2 Command history
+
+Command history works fine with such module like Term::ReadLine::Perl.
+
+=head2 git ready
+
+You can install Cmd::Interpreter from C<< cpanm git@github.com:oakulikov/Cmd-Interpreter.git >>.
 
 =head1 AUTHOR
 
