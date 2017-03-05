@@ -3,6 +3,5 @@ name = "Cmd-Interpreter"
 module_maker="ModuleBuildTiny"
 
 [release]
-do_not_upload_to_cpan=false
-pause_config = "/Users/oleg/.pause"
+# do_not_upload_to_cpan=false
 
